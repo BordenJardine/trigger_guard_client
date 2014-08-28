@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	var button = document.querySelector('.clear_white_list');
 
 	button.onclick = function() {
-		backGroundPage.clearWhiteList();
+		backGroundPage.perWhiteList.clear();
 	};
 });

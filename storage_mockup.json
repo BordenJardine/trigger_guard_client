@@ -3,14 +3,15 @@ triggerGuard: {
 	username: asdf,
 	authToken: 01234,
 	whiteList: [
-		{ url: 'asd.com' }
+		'asd.com'
 	],
-	triggers:,
-	blackList: [
-		{
-			url: 'asd.com',
+	ratings: {
+		'asd.com': 3
+	},
+	blackList: {
+		'asd.com': {
 			ratings: 150,
 			averageRating: 7.5
 		}
-	],
+	},
 }
