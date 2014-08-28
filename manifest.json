@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+	"name": "Trigger Guard",
+	"description": "Trigger warnings for sad brains",
+	"version": "1.0",
+	"permissions": [
+		"webNavigation",
+		"storage"
+	],
+	"background": {
+		"persistent": true,
+		"scripts": ["background.js"]
+	},
+	"browser_action": {
+		"default_popup": "browser_action.html",
+		"default_title": "Trigger Guard",
+		"default_icon": "icon.png"
+	},
+	"content_scripts": [
+			{
+				"matches": ["*://*/*"],
+				"js":			["warning_popup.js", "content_script.js"],
+				"css":		["warning.css"]
+			}
+	],
+	"web_accessible_resources": ["warning.html"]
+}

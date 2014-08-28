@@ -1,0 +1,37 @@
+.tgu-positionAbsolute {
+	position: absolute;
+}
+
+.tgu-positionFixed {
+	position: fixed;
+}
+
+.tgu-topLeft {
+	top: 0;
+	left: 0;
+}
+
+.tgu-fullSize {
+	height: 100%;
+	width: 100%;
+}
+
+.tgu-almostFullSize {
+	height: 94%;
+	width: 94%;
+}
+
+.tg-Mask {
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.tg-Popup {
+	margin: 3%;
+	top: 0;
+	left: 0;
+	background-color: white;
+}
+
+.tg-Popup h1 {
+	font-size: 2em;
+}

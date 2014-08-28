@@ -1,0 +1,23 @@
+var links = document.querySelectorAll('a');
+
+var tgLinkOverride = function(link, defaultBehavior) {
+	return function(e) {
+		e.preventDefault();
+		if(link.href == 'http://www.73q.com/') {
+			return alert('nope');
+		} else if(typeof defaultBehavior == 'function') {
+			defaultBehavior();
+		} else {
+			location.href = link.href;
+		}
+	}
+}
+
+
+for(var i in links) {
+	var link = links[i];
+
+	var defaultBehavior = link.onclick;
+	link.onclick = tgLinkOverride(link, defaultBehavior);
+}
+
