@@ -1,3 +1,7 @@
+.tgu-hidden {
+	display: none;
+}
+
 .tgu-positionAbsolute {
 	position: absolute;
 }
@@ -25,13 +29,43 @@
 	background-color: rgba(0, 0, 0, 0.75);
 }
 
+
 .tg-Popup {
-	margin: 3%;
-	top: 0;
-	left: 0;
+	margin: -100px 20px 20px -280px;
+	top: 50%;
+	left: 50%;
 	background-color: white;
 }
 
-.tg-Popup h1 {
+.tg-Popup p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin: 0.5em;
+}
+
+.tg-Popup-header {
+	padding: 1em 0.5em 0.5em 0.5em;
+	background-color: #b0e0e2;
+}
+
+.tg-Popup-header h1 {
 	font-size: 2em;
+	margin: 0;
+	color: white;
+}
+
+.tg-Popup-body {
+	padding: 1em;
+}
+
+.tg-Popup a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin: 0.5em;
+}
+
+.tg-Popup a.tg-Popup-backLink {
+	color: #ff7000;
+}
+
+.tg-Popup a.tg-Popup-continueLink {
+	color: #2fb4c4;
 }

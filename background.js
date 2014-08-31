@@ -4,33 +4,40 @@ var tmpWhiteList = new WhiteList;
 
 var communalList = new BlackList({
 	'73q.com/': {
-		avgRating: 12,
-		ratings: 4
+		tags: {
+			'scorpions': {
+				rating: 3,
+				ratings: 4
+			},
+			'butts': {
+				rating: 4,
+				ratings: 12
+			}
+		}
 	}
 });
 
 var userRated = new BlackList({
 	'poetv.com/the-hopper.php': {
-		rating: 3
+		tags: {
+			'scorpions': {
+				rating: 3
+			}
+		}
 	}
 });
 
-communalList.find = function(url) {
-	var item = this.lookup(url);
-	if(item && (item.avgRating >= threshold)) {
-		return item;
+var ratingCriteria = function(item) {
+	for(i in item.tags) {
+		if(item.tags[i].rating > threshold) {
+			return true;
+		}
 	}
 	return false;
 }
 
-userRated.find = function(url) {
-	var item = this.lookup(url);
-	if(item && (item.rating >= threshold)) {
-		item.type = 'userRated';
-		return item;
-	}
-	return false;
-};
+communalList.matchCriteria = ratingCriteria;
+userRated.matchCriteria = ratingCriteria;
 
 var messageListener = function(request, sender, sendResponse) {
 	if(sender.tab && request.action == 'whiteList') {

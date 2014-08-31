@@ -22,11 +22,21 @@ var BlackList = function(defaultList) {
 	this.entries = (defaultList) ? defaultList : {};
 }
 
-BlackList.prototype.lookup = function(item) {
+BlackList.prototype.looseLookup = function(item) {
 	list = Object.keys(this.entries);
 	var index = looseIndexOf(list, item);
 	if(index != -1) {
 		return this.entries[list[index]];
+	}
+	return false;
+}
+
+BlackList.prototype.find = function(item) {
+	var candidate = this.looseLookup(item);
+	if(!candidate || !this.matchCriteria) { return false; }
+
+	if(this.matchCriteria(candidate)) {
+		return item;
 	}
 	return false;
 }
