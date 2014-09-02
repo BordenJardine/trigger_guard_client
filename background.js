@@ -17,7 +17,7 @@ var communalList = new BlackList({
 	}
 });
 
-var userRated = new BlackList({
+var userList = new BlackList({
 	'poetv.com/the-hopper.php': {
 		tags: {
 			'scorpions': {
@@ -37,7 +37,7 @@ var ratingCriteria = function(item) {
 }
 
 communalList.matchCriteria = ratingCriteria;
-userRated.matchCriteria = ratingCriteria;
+userList.matchCriteria = ratingCriteria;
 
 var messageListener = function(request, sender, sendResponse) {
 	if(sender.tab && request.action == 'whiteList') {
@@ -47,13 +47,24 @@ var messageListener = function(request, sender, sendResponse) {
 };
 
 var navListener = function(data) {
-	var urlInfo = userRated.find(data.url) || communalList.find(data.url);
+	var urlInfo = userList.find(data.url);
+	if(urlInfo) {
+		var type = 'user';
+	} else {
+		urlInfo = communalList.find(data.url);
+		var type = 'community';
+	}
 
 	if(
 		(urlInfo) &&
 		!perWhiteList.contains(data.url) &&
 		!tmpWhiteList.contains(data.url)
-	) { sendMessage({action: 'displayWarning', url: data.url, info: urlInfo }) }
+	) { sendMessage({
+			action: 'displayWarning',
+			url: data.url,
+			info: urlInfo,
+			type: type
+		}) }
 };
 
 var sendMessage = function(msg) {

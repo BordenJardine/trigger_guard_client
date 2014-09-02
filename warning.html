@@ -1,28 +1,34 @@
 <div class="tgu-fullSize tgu-positionFixed tgu-topLeft tg-Mask"></div>
 <div class="tgu-positionFixed tg-Popup">
 	<div class="tg-Popup-header">
-		<h1>Pardon Me but...</h1>
+		<h1>pardon me, but...</h1>
 	</div>
 	<div class="tg-Popup-body">
-		<p>You might not want to see what's on the page you are on your way to.</p>
-		<p>Here's how <span"tg-popup-who"></span>have rated it</p>
+		<p>you might not want to see what's on the page you are on your way to</p>
+		<p>here's how <span class="tg-Popup-who"></span> rated it</p>
 		<div class="tg-Popup-ratings">
 		</div>
-		<a href='#' class="tg-Popup-backLink">Never Mind</a>
-		<a href='#' class="tg-Popup-continueLink">Continue to <span class="tg-Popup-url"></span></a>
+		<div class="tg-Popup-links">
+			<a href='#' class="tg-Popup-backLink">never mind</a>
+			<a href='#' class="tg-Popup-continueLink">continue to <span class="tg-Popup-url"></span></a>
+		</div>
 	</div>
 </div>
-<p class='tg-hidden tg-rating_template tg-rating_template--them'>
-	<span class="tg-Popup-rating"></span>
-	for
-	<span class="tg-Popup-tag"></span>
-</p>
+<div class='tgu-hidden tg-rating_template--you'>
+	<p class="tg-Rating-inner tgu-displayInlineBlock">
+		<span class="tg-Rating-score"></span>
+		for
+		<span class="tg-Rating-tag"></span>
+	</p>
+</div>
 
-<p class='tgu-hidden tg-rating_template tg-rating_template--you'>
-	<span class="tg-Popup-rating"></span>
-	for
-	<span class="tg-Popup-tag"></span>
-	with
-	<span class="tg-Popup-count"></span>
-	ratings
-</p>
+<div class='tgu-hidden tg-rating_template--them'>
+	<p class="tg-Rating-inner tgu-displayInlineBlock">
+		<span class="tg-rating-score"></span>
+		for
+		<span class="tg-rating-tag"></span>
+		with
+		<span class="tg-rating-count"></span>
+		ratings
+	</p>
+</div>

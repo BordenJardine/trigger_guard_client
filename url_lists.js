@@ -36,7 +36,7 @@ BlackList.prototype.find = function(item) {
 	if(!candidate || !this.matchCriteria) { return false; }
 
 	if(this.matchCriteria(candidate)) {
-		return item;
+		return candidate;
 	}
 	return false;
 }

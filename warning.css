@@ -1,3 +1,7 @@
+.tgu-displayInlineBlock {
+	display: inline-block;
+}
+
 .tgu-hidden {
 	display: none;
 }
@@ -29,32 +33,32 @@
 	background-color: rgba(0, 0, 0, 0.75);
 }
 
+.tg-Rating { }
+
+.tg-Rating-inner {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: .75em;
+	color: #666;
+	border-bottom: 2px solid #9fdde0;
+}
+
+.tg-Rating span.tg-Rating-score {
+	font-size: 2.5em;
+	color: black;
+}
+
+.tg-Rating span.tg-Rating-tag {
+	font-size: 1.5em;
+	color: black;
+}
 
 .tg-Popup {
 	margin: -100px 20px 20px -280px;
 	top: 50%;
 	left: 50%;
 	background-color: white;
-}
-
-.tg-Popup p {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	margin: 0.5em;
-}
-
-.tg-Popup-header {
-	padding: 1em 0.5em 0.5em 0.5em;
-	background-color: #b0e0e2;
-}
-
-.tg-Popup-header h1 {
-	font-size: 2em;
-	margin: 0;
-	color: white;
-}
-
-.tg-Popup-body {
-	padding: 1em;
+	font-size: 11pt;
+	box-shadow: 5px 5px 5px #333;
 }
 
 .tg-Popup a {
@@ -68,4 +72,31 @@
 
 .tg-Popup a.tg-Popup-continueLink {
 	color: #2fb4c4;
+}
+
+.tg-Popup p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin: 0.5em;
+}
+
+.tg-Popup-header {
+	padding: 1em 0.5em 0.5em 0.5em;
+	background-color: #9fdde0;
+}
+
+.tg-Popup-header h1 {
+	font-size: 2em;
+	margin: 0;
+	color: white;
+}
+
+.tg-Popup-body {
+	padding: 1em;
+}
+
+.tg-Popup-ratings {
+}
+
+.tg-Popup-links {
+	padding: 1em 0 0 0;
 }

@@ -2,8 +2,9 @@ var WarningPopup = function(options) {
 	this.doc = document.createElement('div');
 	this.doc.className = "tg-positionAbsolute";
 	this.url = options.url;
-	this.urlInfo = options.info;
-}
+	this.info = options.info;
+	this.type = options.type;
+};
 
 WarningPopup.prototype.setupLinks = function() {
 	var self = this;
@@ -23,12 +24,37 @@ WarningPopup.prototype.setupLinks = function() {
 };
 
 WarningPopup.prototype.setupRatings = function() {
-}
+	var container = this.doc.querySelector('.tg-Popup-ratings');
+	var whoSpan = this.doc.querySelector('.tg-Popup-who');
+	var template, who;
+
+	if(this.type == 'user') {
+		template = this.doc.querySelector('.tg-rating_template--you');
+		who = 'you have';
+	} else {
+		template = this.doc.querySelector('.tg-rating_template--them');
+		who = 'the community has';
+	}
+
+	whoSpan.innerHTML = who;
+
+	for(var tag in this.info.tags) {
+		var tagData = this.info.tags[tag];
+		var newRating = template.cloneNode(true);
+		newRating.className = 'tg-Rating';
+		newRating.querySelector('.tg-Rating-score').innerHTML = tagData.rating;
+		newRating.querySelector('.tg-Rating-tag').innerHTML = tag;
+		if(tagData.ratings != undefined) {
+			newRating.querySelector('.tg-Rating-count').innerHTML = tagData.ratings;
+		}
+		container.appendChild(newRating);
+	}
+};
 
 WarningPopup.prototype.injections = function() {
 	this.setupLinks();
 	this.setupRatings();
-}
+};
 
 WarningPopup.prototype.close = function(done) {
 	this.doc.parentNode.removeChild(this.doc);
@@ -46,19 +72,19 @@ WarningPopup.prototype.loadHTML = function(done) {
 	req.onload = reqListener;
 	req.open("get", chrome.extension.getURL('warning.html'), true);
 	req.send();
-}
+};
 
 var tidyURL = function(url) {
 	return stripProtocol(stripQueryParams(url));
-}
+};
 
 var stripProtocol = function(url) {
 	return url.replace(/^https*:\/\/[www.]*/, '');
-}
+};
 
 var stripQueryParams = function(url) {
 	return url.replace(/\?.*/, '');
-}
+};
 
 WarningPopup.create = function(options, done) {
 	var warningPopup = new WarningPopup(options);
@@ -66,4 +92,4 @@ WarningPopup.create = function(options, done) {
 		warningPopup.injections();
 		done(warningPopup);
 	});
-}
+};
