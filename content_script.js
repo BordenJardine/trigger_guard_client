@@ -14,6 +14,7 @@ var displayWarning = function(data) {
 	WarningPopup.create(data, function(warning) {
 		warning.onContinue = generateContinueFunction(data.url);
 		document.body.appendChild(warning.doc);
+		warning.reposition();
 	});
 };
 

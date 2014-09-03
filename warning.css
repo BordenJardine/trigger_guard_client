@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300);
+
 .tgu-displayInlineBlock {
 	display: inline-block;
 }
@@ -36,7 +38,7 @@
 .tg-Rating { }
 
 .tg-Rating-inner {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-family: 'Merriweather Sans', sans-serif;
 	font-size: .75em;
 	color: #666;
 	border-bottom: 2px solid #9fdde0;
@@ -53,16 +55,15 @@
 }
 
 .tg-Popup {
-	margin: -100px 20px 20px -280px;
 	top: 50%;
 	left: 50%;
 	background-color: white;
 	font-size: 11pt;
-	box-shadow: 5px 5px 5px #333;
+	box-shadow: 5px 5px 5px #000;
 }
 
 .tg-Popup a {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-family: 'Merriweather Sans', sans-serif;
 	margin: 0.5em;
 }
 
@@ -75,7 +76,7 @@
 }
 
 .tg-Popup p {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-family: 'Merriweather Sans', sans-serif;
 	margin: 0.5em;
 }
 
@@ -85,6 +86,7 @@
 }
 
 .tg-Popup-header h1 {
+	font-family: 'Merriweather Sans', sans-serif;
 	font-size: 2em;
 	margin: 0;
 	color: white;

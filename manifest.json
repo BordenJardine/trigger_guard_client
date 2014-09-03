@@ -5,7 +5,9 @@
 	"version": "1.0",
 	"permissions": [
 		"webNavigation",
-		"storage"
+		"storage",
+		"http://fonts.googleapis.com/",
+		"https://fonts.googleapis.com/"
 	],
 	"background": {
 		"persistent": true,

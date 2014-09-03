@@ -1,6 +1,5 @@
 var WarningPopup = function(options) {
 	this.doc = document.createElement('div');
-	this.doc.className = "tg-positionAbsolute";
 	this.url = options.url;
 	this.info = options.info;
 	this.type = options.type;
@@ -65,6 +64,7 @@ WarningPopup.prototype.loadHTML = function(done) {
 	var self = this;
 	function reqListener() {
 		self.doc.innerHTML = this.responseText;
+		self.popupWindow = self.doc.querySelector('.tg-Popup');
 		done();
 	}
 
@@ -72,6 +72,15 @@ WarningPopup.prototype.loadHTML = function(done) {
 	req.onload = reqListener;
 	req.open("get", chrome.extension.getURL('warning.html'), true);
 	req.send();
+};
+
+WarningPopup.prototype.reposition = function() {
+	var popupWindow = this.doc.querySelector('.tg-Popup');
+	var w = popupWindow.offsetWidth,
+		h = popupWindow.offsetHeight;
+
+	popupWindow.style['margin-top'] = ((h / 2) * -1) + 'px';
+	popupWindow.style['margin-left'] = (( w / 2) * -1) + 'px';
 };
 
 var tidyURL = function(url) {
