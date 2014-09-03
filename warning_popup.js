@@ -9,15 +9,18 @@ WarningPopup.prototype.setupLinks = function() {
 	var self = this;
 	var continueLink = this.doc.querySelector('.tg-Popup-continueLink');
 	var backLink = this.doc.querySelector('.tg-Popup-backLink');
+	var xLink = this.doc.querySelector('.tg-Popup-x');
+	var goBack = function() { self.close() };
 
 	continueLink.querySelector('.tg-Popup-url').innerHTML = tidyURL(this.url);
-	backLink.onclick = function() {
-		self.close();
-	};
+
+	backLink.onclick = goBack;
+	xLink.onclick = goBack;
 
 	continueLink.onclick = function() {
 		self.close(function(){
 			if(typeof self.onContinue == 'function') { self.onContinue() };
+
 		});
 	};
 };
