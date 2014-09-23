@@ -82,7 +82,7 @@ WarningPopup.prototype.reposition = function() {
 	var w = popupWindow.offsetWidth,
 		h = popupWindow.offsetHeight;
 
-	popupWindow.style['margin-top'] = ((h / 2) * -1) + 'px';
+	popupWindow.style['margin-top'] = ((h) * -1) + 'px';
 	popupWindow.style['margin-left'] = (( w / 2) * -1) + 'px';
 };
 

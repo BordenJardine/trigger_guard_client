@@ -13,7 +13,15 @@ WhiteList.prototype = {
 		return false;
 	},
 	push: function(item) {
+		item = stripProtocol(item);
 		if(this.entries.indexOf(item) == -1) { this.entries.push(item) };
+	},
+	remove: function(item) {
+		for(var i = 0; i < this.entries.length; i++) {
+			if(item.indexOf(this.entries[i]) != -1 ) {
+				this.entries.splice(i, 1);
+			}
+		}
 	}
 };
 
@@ -46,5 +54,9 @@ var looseIndexOf = function(arr, item) {
 		if(item.indexOf(arr[i]) != -1 ) { return i; }
 	}
 	return -1;
+}
+
+var stripProtocol = function(url) {
+	return url.replace(/^https*:\/\/[www.]*/, '');
 }
 

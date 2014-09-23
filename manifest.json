@@ -6,6 +6,7 @@
 	"permissions": [
 		"webNavigation",
 		"storage",
+		"tabs",
 		"http://fonts.googleapis.com/",
 		"https://fonts.googleapis.com/"
 	],

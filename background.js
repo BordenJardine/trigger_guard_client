@@ -22,6 +22,9 @@ var userList = new BlackList({
 		tags: {
 			'scorpions': {
 				rating: 3
+			},
+			'death': {
+				rating: 4
 			}
 		}
 	}
@@ -41,19 +44,25 @@ userList.matchCriteria = ratingCriteria;
 
 var messageListener = function(request, sender, sendResponse) {
 	if(sender.tab && request.action == 'whiteList') {
-		perWhiteList.push(stripProtocol(request.url));
+		perWhiteList.push(request.url);
 		sendResponse({success: true});
 	}
 };
 
-var navListener = function(data) {
-	var urlInfo = userList.find(data.url);
+var blackListInfo = function(url) {
+	var urlInfo = userList.find(url);
 	if(urlInfo) {
-		var type = 'user';
+		urlInfo.type = 'user';
 	} else {
-		urlInfo = communalList.find(data.url);
-		var type = 'community';
+		urlInfo = communalList.find(url);
+		urlInfo.type = 'community';
 	}
+
+	return urlInfo;
+}
+
+var navListener = function(data) {
+	var urlInfo = blackListInfo(data.url);
 
 	if(
 		(urlInfo) &&
@@ -63,7 +72,7 @@ var navListener = function(data) {
 			action: 'displayWarning',
 			url: data.url,
 			info: urlInfo,
-			type: type
+			type: urlInfo.type
 		}) }
 };
 
@@ -74,10 +83,6 @@ var sendMessage = function(msg) {
 		});
 	});
 };
-
-var stripProtocol = function(url) {
-	return url.replace(/^https*:\/\/[www.]*/, '');
-}
 
 chrome.runtime.onMessage.addListener(messageListener);
 chrome.webNavigation.onBeforeNavigate.addListener(navListener);

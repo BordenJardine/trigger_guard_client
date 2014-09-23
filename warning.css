@@ -2,6 +2,11 @@
 	display: inline-block;
 }
 
+.tgu-hCentered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .tgu-hidden {
 	display: none;
 }
@@ -29,9 +34,52 @@
 	width: 94%;
 }
 
+
+.tg-Action-body {
+	min-width: 300px;
+	height: 1px;
+	margin: 0;
+}
+
+.tg-Action {
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 13pt;
+	text-align: center;
+	padding: .5em;
+}
+
+.tg-Action a {
+}
+
+.tg-Action h1 {
+	text-align: center;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0;
+}
+
+.tg-Action table {
+	text-align: right;
+	margin-bottom: 0.5em;
+}
+
+.tg-Link {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.tg-Link--blue {
+	color: #2fb4c4;
+}
+
+.tg-Link--orange {
+	color: #ff7000;
+}
+
 .tg-Mask {
 	background-color: rgba(0, 0, 0, 0.75);
 }
+
 
 .tg-Rating { }
 
@@ -56,7 +104,7 @@
 	top: 50%;
 	left: 50%;
 	background-color: white;
-	font-size: 11pt;
+	font-size: 13pt;
 	box-shadow: 5px 5px 5px #000;
 }
 
@@ -76,7 +124,7 @@
 .tg-Popup p {
 	font-family: 'Merriweather Sans', sans-serif;
 	font-weight: 300;
-	margin: 0.5em;
+	margin: 0.25em;
 }
 
 .tg-Popup-header {
@@ -94,13 +142,12 @@
 
 .tg-Popup-header .tg-Popup-x {
 	background-color: #fff;
-	border-radius: 7px;
 	color: #ff7000;
 	font-family: 'Varela Round', sans-serif;
-	font-size: 1.2em;
-	height: 15px;
-	width: 15px;
-	line-height: .9em;
+	font-size: 1em;
+	height: 13px;
+	width: 13px;
+	line-height: .7em;
 	text-align: center;
 	top: .25em;
 	right: .25em;
@@ -114,13 +161,13 @@
 }
 
 .tg-Popup-body {
-	padding: 1em;
+	padding: 0.5em;
 }
 
 .tg-Popup-ratings {
 }
 
 .tg-Popup-links {
-	padding: 1em 0 0 0;
+	padding: 1em 0 0.5em 0;
 }
 
