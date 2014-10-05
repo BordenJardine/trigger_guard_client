@@ -30,8 +30,17 @@ var BlackList = function(defaultList) {
 	this.entries = (defaultList) ? defaultList : {};
 }
 
+BlackList.prototype.add = function(url, tag, info) {
+	url = stripProtocol(url);
+	if(!this.entries[url]) {
+		this.entries[url] = {tags: {}};
+	}
+	this.entries[url].tags[tag] = info;
+};
+
 BlackList.prototype.looseLookup = function(item) {
-	list = Object.keys(this.entries);
+	var list = Object.keys(this.entries);
+
 	var index = looseIndexOf(list, item);
 	if(index != -1) {
 		return this.entries[list[index]];
@@ -47,6 +56,9 @@ BlackList.prototype.find = function(item) {
 		return candidate;
 	}
 	return false;
+}
+
+BlackList.prototype.remove = function(url, tag, info) {
 }
 
 var looseIndexOf = function(arr, item) {
